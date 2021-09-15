@@ -4,6 +4,7 @@ import './App.css';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import SearchIcon from '@material-ui/icons/Search';
 
 export default ()=>{
   return (
@@ -25,7 +26,13 @@ export default ()=>{
         </header>
         
         <div className="search">
-....
+          <div className="search--input">
+          <SearchIcon fontSize="small" style={{color: '#919191'}} />
+          <input 
+          type="search"
+          placeholder="Procurar ou começar uma nova conversa"
+          />
+          </div>
         </div>
 
         <div className="chatlist">

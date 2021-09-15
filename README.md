@@ -2,7 +2,7 @@
 
 - Application created during the React.Js class taught at B7Web;
 
-- Application simulates the operation of a message exchange application such as WhatsApp and Line.
+- Application simulates the operation of a message exchange application such as WhatsApp, Line and KakaoTalk.
 
 -----------------------------------------------------
 
