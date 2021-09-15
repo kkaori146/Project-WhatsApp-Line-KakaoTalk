@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+
+import ChatListItem from './components/ChatListItem';
 
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
+import profile from "./images/profile.jpg";
 
 export default ()=>{
+
+  const [chatList, setChatList] = useState([{}, {}, {}, {}]);
+  
   return (
     <div className="app-window">
       <div className="sidebar">
         <header>
-          <img className ="header--avatar" src="http://www.w3schools.com/howto/img_avatar2.png" alt="profile" />
+          <img className ="header--avatar" src={profile} alt="profile" />
           <div className="header--buttons">
             <div className="header-btn">
               <DonutLargeIcon style={{color: '#919191'}} />
@@ -36,7 +42,11 @@ export default ()=>{
         </div>
 
         <div className="chatlist">
-          ...
+          {chatList.map((item, key)=>(
+            <ChatListItem 
+              key={key}
+            />
+          ))}
         </div>
 
       </div>
