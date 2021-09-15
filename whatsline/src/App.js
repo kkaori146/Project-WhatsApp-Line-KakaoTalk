@@ -11,7 +11,7 @@ import profile from "./images/profile.jpg";
 
 export default ()=>{
 
-  const [chatList, setChatList] = useState([{}, {}, {}, {}]);
+  const [chatList, setChatList] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]);
   
   return (
     <div className="app-window">
