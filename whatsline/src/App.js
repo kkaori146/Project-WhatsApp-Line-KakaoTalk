@@ -17,7 +17,7 @@ export default ()=>{
     {chatId: 1, title:'Ciclano', image: {profile}},
     {chatId: 2, title:'Ciclano', image: {profile}},
     {chatId: 3, title:'Ciclano', image: {profile}},
-    {chatId: 4, title:'Ciclano', image: {profile}},
+    {chatId: 4, title:'Ciclano', image: {profile}}
   ]);
   const [activeChat, setActiveChat] = useState({});
 
@@ -64,9 +64,8 @@ export default ()=>{
           <ChatWindow />
         }
         {activeChat.chatId === undefined &&
-          <ChatIntro/>
+          <ChatIntro />
         }
-            <ChatIntro />
       </div>
     </div>
   );
