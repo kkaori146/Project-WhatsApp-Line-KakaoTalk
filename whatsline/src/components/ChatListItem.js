@@ -2,10 +2,10 @@ import React from 'react';
 import './ChatListItem.css';
 import mscat from "../images/mscat.jpg";
 
-export default ({onClick})=>{
+export default ({onClick, active})=>{
     return(
         <div
-         className="chatListItem"
+         className={`chatListItem ${active? 'active':''}`}
          onClick={onClick}
          >
             <img className="chatListItem--avatar" src={mscat} alt="" />
