@@ -3,6 +3,7 @@ import './App.css';
 
 import ChatListItem from './components/ChatListItem';
 import ChatIntro from './components/ChatIntro';
+import ChatWindow from './components/ChatWindow';
 
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -12,8 +13,14 @@ import profile from "./images/profile.jpg";
 
 export default ()=>{
 
-  const [chatList, setChatList] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]);
-  
+  const [chatList, setChatList] = useState([
+    {chatId: 1, title:'Ciclano', image: {profile}},
+    {chatId: 2, title:'Ciclano', image: {profile}},
+    {chatId: 3, title:'Ciclano', image: {profile}},
+    {chatId: 4, title:'Ciclano', image: {profile}},
+  ]);
+  const [activeChat, setActiveChat] = useState({});
+
   return (
     <div className="app-window">
       <div className="sidebar">
@@ -46,12 +53,19 @@ export default ()=>{
           {chatList.map((item, key)=>(
             <ChatListItem 
               key={key}
+              onClick={()=>setActiveChat(chatList[key])}
             />
           ))}
         </div>
 
       </div>
       <div className="contentarea">
+        {activeChat.chatId !== undefined &&
+          <ChatWindow />
+        }
+        {activeChat.chatId === undefined &&
+          <ChatIntro/>
+        }
             <ChatIntro />
       </div>
     </div>
