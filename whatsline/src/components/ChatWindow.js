@@ -69,6 +69,7 @@ export default () =>{
 
                 <div className="chatWindow--btn"
                 onClick={handleCloseEmoji}
+                style={{width: emojiOpen?40:0}}
                 >
                         <CloseIcon style={{color: '#919191'}} />
                     </div>
@@ -76,7 +77,7 @@ export default () =>{
                     <div className="chatWindow--btn"
                     onClick={handleOpenEmoji}
                     >
-                        <InsertEmoticonIcon style={{color: '#919191'}} />
+                        <InsertEmoticonIcon style={{color: emojiOpen?'#009688': '#919191'}} />
                     </div>
                 </div>
 

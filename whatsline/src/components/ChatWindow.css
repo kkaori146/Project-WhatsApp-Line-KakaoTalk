@@ -39,6 +39,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 cursor: pointer;
+overflow: hidden;
+transition: all ease 0.3s;
 }
 .chatWindow--body {
     flex: 1;
