@@ -20,6 +20,7 @@ npm install @material-ui/core @material-ui/icons
 
 npm install emoji-picker-react
 
+import EmojiPicker from 'emoji-picker-react';
 -----------------------------------------------------
 ## Icons (Material UI Icon)
 
