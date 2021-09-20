@@ -14,7 +14,7 @@ import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
 
-export default () =>{
+export default ({user}) =>{
 
     let recognition = null;
     let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -25,7 +25,11 @@ export default () =>{
     const [emojiOpen, setEmojiOpen] = useState(false);
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
-    const [list, setList] = useState([{}, {}, {}]);
+    const [list, setList] = useState([
+        {author: 123, body: 'Conversando sobre cachorro-quente de Sampa'},
+        {author: 123, body: 'Diferentes formas de assar peixe com folha de bananeira'},
+        {author: 1236, body: 'Preparação para o Natal'},    
+    ]);
 
     const handleEmojiClick = (e, emojiObject) =>{
        setText (text + emojiObject.emoji);
@@ -86,6 +90,7 @@ export default () =>{
                     <MessageItem 
                     key={key}
                     data={item}
+                    user={user}
                     />
                 ))}
 
