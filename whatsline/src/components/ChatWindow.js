@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import EmojiPicker from 'emoji-picker-react';
 import './ChatWindow.css';
-import mscat from "../images/mscat.jpg";
 
 import MessageItem from './MessageItem';
 
@@ -14,7 +13,7 @@ import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
 
-export default ({user}) =>{
+export default ({user, data}) =>{
 
     const body = useRef();
 
@@ -88,8 +87,8 @@ export default ({user}) =>{
         <div className="chatWindow">
             <div className="chatWindow--header">
                 <div className="chatWindow--headerinfo">
-                    <img className="chatWindow--avatar" src={mscat} alt="imagem de gato" />
-                    <div className="chatWindow--name">Gatito</div>
+                    <img className="chatWindow--avatar" src= {data.image} alt="profile photo" />
+                    <div className="chatWindow--name">{data.title}</div>
                 </div>
                 <div className="chatWindow--headerbuttons">
                    <div className="chatWindow--btn">
