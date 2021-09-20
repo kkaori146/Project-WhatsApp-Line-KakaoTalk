@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import EmojiPicker from 'emoji-picker-react';
 import './ChatWindow.css';
 import mscat from "../images/mscat.jpg";
@@ -16,6 +16,8 @@ import MicIcon from '@material-ui/icons/Mic';
 
 export default ({user}) =>{
 
+    const body = useRef();
+
     let recognition = null;
     let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if(SpeechRecognition !== undefined) {
@@ -26,10 +28,29 @@ export default ({user}) =>{
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
     const [list, setList] = useState([
-        {author: 123, body: 'Conversando sobre cachorro-quente de Sampa'},
-        {author: 123, body: 'Diferentes formas de assar peixe com folha de bananeira'},
-        {author: 1236, body: 'Preparação para o Natal'},    
+        {author: 123, body: 'Olá!!!Vc tá aí?'},
+        {author: 123, body: 'Caso Urgente!!'},
+        {author: 1236, body: 'Não Tô não....'}, 
+        {author: 123, body: 'XP'},
+        {author: 123, body: 'Ainda aborrecido pq prendi seu rabo na porta?'},
+        {author: 1236, body: '3r4236r4##$#$!'}, 
+        {author: 123, body: 'Quando morrê passa!!'},
+        {author: 123, body: 'XD'},
+        {author: 1236, body: 'Cê é Cringe!'}, 
+        {author: 123, body: 'Q q é isso?'},
+        {author: 123, body: 'É de comer?'},
+        {author: 1236, body: 'Sim...'}, 
+        {author: 123, body: '??????'},
+        {author: 123, body: ' C tá aí?'},
+        {author: 1236, body: 'zzZZZzzzZZZZzzzzzzzzZZZZ'},    
     ]);
+
+    useEffect(()=>{
+        if(body.current.scrollHeight > body.current.offsetHeight){
+            body.current.scrollTop = body.current.scrollHeight - body.current.offsetHeight;
+        }
+
+    }, [list]);
 
     const handleEmojiClick = (e, emojiObject) =>{
        setText (text + emojiObject.emoji);
@@ -85,7 +106,7 @@ export default ({user}) =>{
 
                 </div>
             </div>
-            <div className="chatWindow--body">
+            <div ref={body} className="chatWindow--body">
                 {list.map((item, key)=>(
                     <MessageItem 
                     key={key}
