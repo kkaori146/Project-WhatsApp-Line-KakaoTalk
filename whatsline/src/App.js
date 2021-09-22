@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 
+import Api from './Api';
+
 import ChatListItem from './components/ChatListItem';
 import ChatIntro from './components/ChatIntro';
 import ChatWindow from './components/ChatWindow';
@@ -13,14 +15,10 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 
 
+
 export default ()=>{
 
-  const [chatlist, setChatList] = useState([
-    {chatId: 1, title:'Ciclano', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 2, title:'Ciclano', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 3, title:'Ciclano', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 4, title:'Ciclano', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-  ]);
+  const [chatlist, setChatList] = useState([]);
 
   const [activeChat, setActiveChat] = useState({});
   const [user, setUser] = useState(null);
@@ -37,6 +35,7 @@ const handleLoginData = async (u) => {
       name: u.displayName,
       avatar:u.photoURL
     };
+    await Api.addUser(newUser);
     setUser(newUser);
 }
 
