@@ -4,8 +4,6 @@
 
 - Application simulates the operation of a message exchange application such as WhatsApp, Line and KakaoTalk.
 
------------------------------------------------------
-
 # Installations
 
 ## Firebase
@@ -21,7 +19,7 @@ npm install @material-ui/core @material-ui/icons
 npm install emoji-picker-react
 
 import EmojiPicker from 'emoji-picker-react';
------------------------------------------------------
+
 ## Icons (Material UI Icon)
 
 - DonutLarge
@@ -35,3 +33,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 - More (vertical)
 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+
+# Firebase
+
+https://firebase.google.com
