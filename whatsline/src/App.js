@@ -103,7 +103,7 @@ const handleLoginData = async (u) => {
         {activeChat.chatId !== undefined &&
           <ChatWindow 
             user = {user}
-            data={activeChat}
+            data={activeChat}//todas info de que nome e msg são exibidos
           />
         }
         {activeChat.chatId === undefined &&
