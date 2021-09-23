@@ -61,7 +61,7 @@ export default {
     },
     onChatList:(userId, setChatList) => {
         return db.collection('users').doc(userId).onSnapshot((doc)=>{
-            if(doc.exists){
+            if(doc.exists) {
                 let data = doc.data();
                 if(data.chats) {
                     setChatList(data.chats);
@@ -69,15 +69,16 @@ export default {
             }
         });
     },
-    onChatContent:(chatId, setList)=>{
+    onChatContent:(chatId, setList,setUsers)=>{
         return db.collection('chats').doc(chatId).onSnapshot((doc)=>{
             if(doc.exists) {
                 let data = doc.data();
                 setList(data.messages);
+                setUsers(data.users);
             }
         });
     },
-    sendMessage:(chatData, userId, type, body) => {
+    sendMessage: async(chatData, userId, type, body, users) => {
 
         let now = new Date();
 
@@ -89,5 +90,22 @@ export default {
                 date:now
             })
         });
+        for(let i in users) {
+            let u = await db.collection('users').doc(users[i]).get();
+            let uData = u.data();
+            if(uData.chats) {
+                let chats = [...uData.chats];
+
+                for(let e in chats) {
+                    if(chats[e].chatId == chatData.chatId) {
+                        chats[e].lastMessage = body;
+                        chats[e].lastMessageDate = now;
+                    }
+                }
+              await db.collection('users').doc(users[i]).update({
+                  chats
+              });
+            }
+        }
     }
 };
